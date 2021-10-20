@@ -23,7 +23,7 @@ void setup(int16_t m1[N][N], int16_t m2[N][N], int16_t m3[N][N]) {
     /*      MATRIX TRANSPOSITION        */
     /************************************/
 
-    transpose(tmp, m2);
+   
 }
 
 void transpose(int16_t m[N][N], int16_t res[N][N]) {
@@ -34,12 +34,15 @@ void transpose(int16_t m[N][N], int16_t res[N][N]) {
     }
 }
 
-void multiply_matrices(int16_t const factor1[N][N], int16_t const factor2[N][N],
+void multiply_matrices(int16_t const factor1[N][N], int16_t factor2[N][N],
                        int16_t res[N][N]) {
+   	
+    int16_t tmp[N][N];
+    transpose(factor2, tmp);
     for (size_t i = 0; i < N; ++i) {
         for (size_t j = 0; j < N; ++j) {
             for (size_t k = 0; k < N; ++k) {
-                res[i][j] += factor1[i][k] * factor2[j][k];
+                res[i][j] += factor1[i][k] * tmp[j][k];
             }
         }
     }
