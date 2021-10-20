@@ -7,7 +7,7 @@
 #include <string.h> // memset()
 #include <time.h>
 
-#define CACHE_MIN (8 * 1024)        // 4 KB
+#define CACHE_MIN (4 * 1024)        // 4 KB
 #define CACHE_MAX (256 * 1024) // 4 MB
 #define N_REPETITIONS (100)
 
